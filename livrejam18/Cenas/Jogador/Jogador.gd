@@ -5,6 +5,7 @@ const normal = Vector2(0,-1)
 
 
 var velocidade = Vector2(0,0)
+var chaves = 3
 
 
 func _ready():

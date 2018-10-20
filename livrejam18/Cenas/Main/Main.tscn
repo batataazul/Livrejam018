@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Cenas/Main/Main.gd" type="Script" id=1]
+[ext_resource path="res://Imagens/Buttons/Play_Butoon.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/Buttons/Quit_Butoon.png" type="Texture" id=3]
 
-[node name="Main" type="Node2D"]
+[node name="Menu" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
@@ -19,6 +21,7 @@ margin/bottom = 435.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
+icon = ExtResource( 2 )
 flat = false
 
 [node name="Sair" type="Button" parent="."]
@@ -34,6 +37,7 @@ margin/bottom = 667.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
+icon = ExtResource( 3 )
 flat = false
 
 

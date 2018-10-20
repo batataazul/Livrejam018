@@ -4,10 +4,10 @@
 [ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 31.0385, 30.9204 )
+radius = 23.7161
 
 [sub_resource type="SpriteFrames" id=2]
 

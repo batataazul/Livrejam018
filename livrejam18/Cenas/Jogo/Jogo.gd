@@ -11,9 +11,9 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	player = get_node("Jogador")
-	get_node("Guarda/Seguir/Area2D").connect("body_enter",self, "perder")
+	#get_node("Guarda/Seguir/Area2D").connect("body_enter",self, "perder")
 	pass
 	
 func perder(body):
 	if body.get_name() == "Player":
-		get_tree().change_scene(".")
+		get_tree().change_scene("Main")

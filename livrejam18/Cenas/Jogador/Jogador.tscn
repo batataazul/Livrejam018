@@ -1,11 +1,8 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Cenas/Jogador/Jogador.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=3]
-[ext_resource path="res://Cenas/Jogador/HUD.gd" type="Script" id=4]
-[ext_resource path="res://Imagens/HUD/HUD.png" type="Texture" id=5]
-[ext_resource path="res://Imagens/ícones/retratopequeno.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -72,35 +69,5 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-
-[node name="HUD" type="CanvasLayer" parent="."]
-
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-script/script = ExtResource( 4 )
-
-[node name="Panel_Status" type="Sprite" parent="HUD"]
-
-transform/pos = Vector2( 182.425, 64.2738 )
-transform/scale = Vector2( 1.41989, 1.10341 )
-texture = ExtResource( 5 )
-
-[node name="Status" type="Sprite" parent="HUD"]
-
-transform/pos = Vector2( 119.713, 65.298 )
-texture = ExtResource( 6 )
-
-[node name="PanelContainer" type="PanelContainer" parent="HUD"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 172.0
-margin/top = 30.0
-margin/right = 286.0
-margin/bottom = 73.0
 
 

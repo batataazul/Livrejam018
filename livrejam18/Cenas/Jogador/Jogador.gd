@@ -4,6 +4,7 @@ const rapidez = 256
 const normal = Vector2(0,-1)
 
 
+
 var velocidade = Vector2(0,0)
 
 

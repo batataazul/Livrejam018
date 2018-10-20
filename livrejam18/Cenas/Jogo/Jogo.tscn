@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Cenas/Jogo/Jogo.gd" type="Script" id=1]
@@ -15,7 +16,9 @@ points = Vector2Array( 97.0707, 30.4571, 352.661, 29.9167, 352.121, 159.063, -33
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
+
 points = Vector2Array( 97.0707, 30.4571, -33.1561, 156.901, -30.9947, -31.6843, 95.4496, -33.3054 )
+
 
 [node name="Jogo" type="Node2D"]
 
@@ -114,5 +117,48 @@ margin/right = 40.0
 margin/bottom = 40.0
 texture = ExtResource( 6 )
 stretch_mode = 0
+
+transform/pos = Vector2( 624.397, 134.637 )
+
+[node name="Guarda" type="Path2D" parent="."]
+
+transform/pos = Vector2( 275.191, 366.586 )
+curve = SubResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="Seguir" type="PathFollow2D" parent="Guarda"]
+
+transform/pos = Vector2( 81.4769, 2.77325 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Area2D" type="Area2D" parent="Guarda/Seguir"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( -5.08797e-07, -11.6399, 12.3769, -5.4101e-07, 119.734, 1.25644 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="Sprite" type="Sprite" parent="Guarda/Seguir/Area2D"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/Seguir/Area2D"]
+
+transform/pos = Vector2( 119.734, 1.25644 )
+transform/rot = 90.0
+transform/scale = Vector2( 11.6399, 12.3769 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
 
 

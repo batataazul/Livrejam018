@@ -4,11 +4,11 @@ const rapidez = 256 #Constante de velocidade
 const normal = Vector2(0,-1) #Vetor normal
 
 
+
 var velocidade #Velocidade linear
 var chaves = 3 #Chaves que o jogador possui
 var claro = false #Se o jogador está, ou não numa área iluminada
 var sprite #Sprite
-
 func _ready():
 	sprite = get_node("AnimatedSprite") #Pega a animação
 	set_fixed_process(true) #Começa o processo físico

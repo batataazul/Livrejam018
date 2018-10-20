@@ -17,10 +17,10 @@ func _fixed_process(delta):
 		velocidade.x = 1
 		pass
 	if Input.is_action_pressed("ui_left"):
-		velocidade.x = 1
+		velocidade.x = -1
 		pass
 	if Input.is_action_pressed("ui_up"):
-		velocidade.y = 1
+		velocidade.y = -1
 		pass
 	if Input.is_action_pressed("ui_down"):
 		velocidade.y = 1

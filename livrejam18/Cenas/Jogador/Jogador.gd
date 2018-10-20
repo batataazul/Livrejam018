@@ -16,21 +16,37 @@ func _ready():
 
 func _fixed_process(delta):
 	velocidade = Vector2(0,0) #Reinicia a velocidade a cada repetição
-	if claro == true:
-		sprite.play("Claro") #Se está no claro, chama a sprite clara
-	else:
-		sprite.play("Escuro") #Se está escuro, chama a sprite escura
+		
 	if Input.is_action_pressed("ui_right"):
 		velocidade.x = 1 #Anda pra direita
+		if claro == true:
+			sprite.play("Claro_lado")
+		else:
+			sprite.play("Escuro_lado")
+		sprite.set_flip_h(true)
 		pass
 	if Input.is_action_pressed("ui_left"):
 		velocidade.x = -1 #Anda pra esquerda
+		if claro == true:
+			sprite.play("Claro_lado")
+		else:
+			sprite.play("Escuro_lado")
+		sprite.set_flip_h(false)
 		pass
+			
 	if Input.is_action_pressed("ui_up"):
 		velocidade.y = -1 #Anda pra cima
+		if claro == true:
+			sprite.play("Claro_trás")
+		else:
+			sprite.play("Escuro_trás")
 		pass
 	if Input.is_action_pressed("ui_down"):
 		velocidade.y = 1 #Anda pra baixo
+		if claro == true:
+			sprite.play("Claro_frente")
+		else:
+			sprite.play("Escuro_frente")
 		pass
 	move_and_slide(velocidade.normalized()*rapidez,normal) #Se move usando um vetor normalizado multiplicado
 	pass

@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Cenas/Jogador/Jogador.gd" type="Script" id=1]
-[ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=2]
-[ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/Personagens/kuba lado escuropequeno.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/Personagens/kuba costapequeno.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/Personagens/kubaladopequeno.png" type="Texture" id=4]
+[ext_resource path="res://Imagens/Personagens/kuba costa escuro pequeno.png" type="Texture" id=5]
+[ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=6]
+[ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -14,13 +18,33 @@ radius = 23.7161
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Claro",
-"speed": 1.0
+"name": "Escuro_lado",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Escuro",
+"name": "Claro_trás",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Claro_lado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "Escuro_trás",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Escuro_frente",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Claro_frente",
+"speed": 1.0
 } ]
 
 [node name="Jogador" type="KinematicBody2D"]
@@ -41,7 +65,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
 frames = SubResource( 2 )
-animation = "Escuro"
+animation = "Escuro_frente"
 playing = true
 offset = Vector2( 0, -48 )
 

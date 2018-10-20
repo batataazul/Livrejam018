@@ -16,13 +16,14 @@ func _ready():
 										tween.EASE_IN_OUT)
 	tween.set_repeat(true)
 	tween.start()
-	get_node("./Seguir/Area2D").connect("body_enter",self, "perder")
+	get_node("Seguir/Area2D").connect("body_enter",self, "perder")
+	get_node("Seguir").rotate = false
 	pass
 
 func perder(body):
 	if body.get_name() == "Jogador":
-		if body.claro == 1:
-			get_tree().change_scene("res://Cenas/Jogo/Jogo.tscn")
+		if body.claro == true:
+			get_tree().change_scene("res://Cenas/Main/Main.tscn")
 
 func _fixed_process(delta):
 	pass

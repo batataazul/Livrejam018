@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Cenas/Jogo/Jogo.gd" type="Script" id=1]
 [ext_resource path="res://Cenas/Jogo/claro1.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Cenas/TileSet/TileSet_parede.res" type="TileSet" id=4]
 [ext_resource path="res://Cenas/Jogador/Jogador.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Imagens/cenario/Background.png" type="Texture" id=6]
+[ext_resource path="res://Cenas/Guarda/Guarda_Path.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -114,5 +115,9 @@ margin/right = 40.0
 margin/bottom = 40.0
 texture = ExtResource( 6 )
 stretch_mode = 0
+
+[node name="Guarda_Path" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 632.781, 456.807 )
 
 

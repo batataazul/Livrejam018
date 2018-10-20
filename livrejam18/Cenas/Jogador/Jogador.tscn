@@ -1,15 +1,19 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Cenas/Jogador/Jogador.gd" type="Script" id=1]
-[ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=2]
-[ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=3]
-[ext_resource path="res://Cenas/Jogador/HUD.gd" type="Script" id=4]
-[ext_resource path="res://Imagens/HUD/HUD.png" type="Texture" id=5]
-[ext_resource path="res://Imagens/ícones/retratopequeno.png" type="Texture" id=6]
-[ext_resource path="res://Imagens/HUD/HUD1.png" type="Texture" id=7]
-[ext_resource path="res://Imagens/Keys/Yellow_Key.png" type="Texture" id=8]
-[ext_resource path="res://Imagens/Keys/Red_Key.png" type="Texture" id=9]
-[ext_resource path="res://Imagens/Keys/Green_Key.png" type="Texture" id=10]
+[ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/Personagens/kuba costapequeno.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=4]
+[ext_resource path="res://Imagens/Personagens/kuba lado escuropequeno.png" type="Texture" id=5]
+[ext_resource path="res://Imagens/Personagens/kuba costa escuro pequeno.png" type="Texture" id=6]
+[ext_resource path="res://Imagens/Personagens/kubaladopequeno.png" type="Texture" id=7]
+[ext_resource path="res://Cenas/Jogador/HUD.gd" type="Script" id=8]
+[ext_resource path="res://Imagens/HUD/HUD.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/ícones/retratopequeno.png" type="Texture" id=10]
+[ext_resource path="res://Imagens/HUD/HUD1.png" type="Texture" id=11]
+[ext_resource path="res://Imagens/Keys/Yellow_Key.png" type="Texture" id=12]
+[ext_resource path="res://Imagens/Keys/Red_Key.png" type="Texture" id=13]
+[ext_resource path="res://Imagens/Keys/Green_Key.png" type="Texture" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -21,12 +25,32 @@ radius = 23.7161
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "Claro",
-"speed": 1.0
+"name": "Escuro_frente",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Escuro",
+"name": "Claro_trás",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Claro_frente",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Escuro_lado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "Escuro_trás",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Claro_lado",
 "speed": 5.0
 } ]
 
@@ -48,7 +72,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
 frames = SubResource( 2 )
-animation = "Escuro"
+animation = "Escuro_frente"
 playing = true
 offset = Vector2( 0, -48 )
 
@@ -83,46 +107,43 @@ layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
-script/script = ExtResource( 4 )
+script/script = ExtResource( 8 )
 
 [node name="Panel_Status" type="Sprite" parent="HUD"]
 
 editor/display_folded = true
 transform/pos = Vector2( 180, 64 )
 transform/scale = Vector2( 1.41989, 1.10341 )
-texture = ExtResource( 5 )
+texture = ExtResource( 9 )
 
 [node name="Status" type="Sprite" parent="HUD/Panel_Status"]
 
 transform/pos = Vector2( -44.1666, 0.928204 )
 transform/scale = Vector2( 0.70428, 0.906278 )
-texture = ExtResource( 6 )
+texture = ExtResource( 10 )
 
 [node name="Special_panel" type="Sprite" parent="HUD"]
 
 transform/pos = Vector2( 149.464, 140.977 )
 transform/scale = Vector2( 1, 0.5 )
-texture = ExtResource( 7 )
+texture = ExtResource( 11 )
 
 [node name="yellow_key" type="Sprite" parent="HUD/Special_panel"]
 
-visibility/visible = false
 transform/pos = Vector2( -48, 0 )
 transform/scale = Vector2( 2, 3 )
-texture = ExtResource( 8 )
+texture = ExtResource( 12 )
 
 [node name="red_key" type="Sprite" parent="HUD/Special_panel"]
 
-visibility/visible = false
 transform/scale = Vector2( 2, 3 )
-texture = ExtResource( 9 )
+texture = ExtResource( 13 )
 
 [node name="green_key" type="Sprite" parent="HUD/Special_panel"]
 
-visibility/visible = false
 transform/pos = Vector2( 48, 0 )
 transform/scale = Vector2( 2, 3 )
-texture = ExtResource( 10 )
+texture = ExtResource( 14 )
 
 [node name="pocket1" type="HBoxContainer" parent="HUD"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Cenas/Jogador/Jogador.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Cenas/Jogador/HUD.gd" type="Script" id=4]
 [ext_resource path="res://Imagens/HUD/HUD.png" type="Texture" id=5]
 [ext_resource path="res://Imagens/ícones/retratopequeno.png" type="Texture" id=6]
+[ext_resource path="res://Imagens/HUD/HUD1.png" type="Texture" id=7]
+[ext_resource path="res://Imagens/Keys/Yellow_Key.png" type="Texture" id=8]
+[ext_resource path="res://Imagens/Keys/Red_Key.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/Keys/Green_Key.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -83,24 +87,65 @@ script/script = ExtResource( 4 )
 
 [node name="Panel_Status" type="Sprite" parent="HUD"]
 
-transform/pos = Vector2( 182.425, 64.2738 )
+editor/display_folded = true
+transform/pos = Vector2( 180, 64 )
 transform/scale = Vector2( 1.41989, 1.10341 )
 texture = ExtResource( 5 )
 
-[node name="Status" type="Sprite" parent="HUD"]
+[node name="Status" type="Sprite" parent="HUD/Panel_Status"]
 
-transform/pos = Vector2( 119.713, 65.298 )
+transform/pos = Vector2( -44.1666, 0.928204 )
+transform/scale = Vector2( 0.70428, 0.906278 )
 texture = ExtResource( 6 )
 
-[node name="PanelContainer" type="PanelContainer" parent="HUD"]
+[node name="Special_panel" type="Sprite" parent="HUD"]
+
+transform/pos = Vector2( 149.464, 140.977 )
+transform/scale = Vector2( 1, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="yellow_key" type="Sprite" parent="HUD/Special_panel"]
+
+visibility/visible = false
+transform/pos = Vector2( -48, 0 )
+transform/scale = Vector2( 2, 3 )
+texture = ExtResource( 8 )
+
+[node name="red_key" type="Sprite" parent="HUD/Special_panel"]
+
+visibility/visible = false
+transform/scale = Vector2( 2, 3 )
+texture = ExtResource( 9 )
+
+[node name="green_key" type="Sprite" parent="HUD/Special_panel"]
+
+visibility/visible = false
+transform/pos = Vector2( 48, 0 )
+transform/scale = Vector2( 2, 3 )
+texture = ExtResource( 10 )
+
+[node name="pocket1" type="HBoxContainer" parent="HUD"]
 
 focus/ignore_mouse = false
-focus/stop_mouse = true
+focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 172.0
-margin/top = 30.0
+margin/left = 171.0
+margin/top = 29.0
 margin/right = 286.0
-margin/bottom = 73.0
+margin/bottom = 52.0
+alignment = 0
+
+[node name="pocket2" type="HBoxContainer" parent="HUD"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 171.0
+margin/top = 53.0
+margin/right = 286.0
+margin/bottom = 74.0
+alignment = 0
 
 

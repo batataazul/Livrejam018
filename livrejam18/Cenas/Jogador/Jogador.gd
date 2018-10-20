@@ -9,6 +9,10 @@ var chaves = 3 #Chaves que o jogador possui
 var claro = false #Se o jogador está, ou não numa área iluminada
 var sprite #Sprite
 
+var Yellow_key = false
+var Red_key = false
+var Green_key = false
+
 func _ready():
 	sprite = get_node("AnimatedSprite") #Pega a animação
 	set_fixed_process(true) #Começa o processo físico

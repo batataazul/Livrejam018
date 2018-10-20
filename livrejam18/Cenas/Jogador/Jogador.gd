@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const rapidez = 80
+const rapidez = 256
 const normal = Vector2(0,-1)
 
 

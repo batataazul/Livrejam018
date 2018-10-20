@@ -43,7 +43,7 @@ __meta__ = {
 frames = SubResource( 2 )
 animation = "Escuro"
 playing = true
-offset = Vector2( 0, -32 )
+offset = Vector2( 0, -48 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

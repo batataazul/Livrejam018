@@ -1,12 +1,27 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Cenas/Jogador/Jogador.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 31.0385, 30.9204 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Claro",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Escuro",
+"speed": 5.0
+} ]
 
 [node name="Jogador" type="KinematicBody2D"]
 
@@ -23,9 +38,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-texture = ExtResource( 2 )
+frames = SubResource( 2 )
+animation = "Escuro"
+playing = true
 offset = Vector2( 0, -32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

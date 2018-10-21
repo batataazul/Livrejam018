@@ -91,6 +91,7 @@ func visto(body):
 		pass
 	pass
 	
+
 func encostou(body):
 	if body == self:
 		if chaves == 0:

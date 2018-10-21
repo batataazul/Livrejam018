@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Cenas/Jogo/Jogo.gd" type="Script" id=1]
 [ext_resource path="res://Cenas/Jogo/claro1.gd" type="Script" id=2]
@@ -51,7 +51,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 56.5796
+
+[sub_resource type="RectangleShape2D" id=7]
+
 
 custom_solver_bias = 0.0
 extents = Vector2( 3.67255, 3.87631 )
@@ -198,6 +205,27 @@ animation = "Frente"
 
 transform/pos = Vector2( -12.0989, 9.40091 )
 shape = SubResource( 3 )
+<<<<<<< HEAD
+=======
+trigger = false
+_update_shape_index = 0
+
+[node name="Feet_detection" type="Area2D" parent="Guarda/Corpo"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -11.7042, 9.26584 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/Corpo/Feet_detection"]
+
+transform/pos = Vector2( -11.7042, 9.26584 )
+shape = SubResource( 6 )
+>>>>>>> 7e218aa83116fe0c2471c25b32315d223a0c2ae0
 trigger = false
 _update_shape_index = 0
 
@@ -212,7 +240,7 @@ transform/rot = -0.154407
 editor/display_folded = true
 transform/pos = Vector2( -5.95135, 9.14572 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -222,7 +250,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Right"]
 
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
 
@@ -233,7 +261,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 153.629, 86.8091 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -243,7 +271,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Left"]
 
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
 
@@ -254,7 +282,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( -26.8651, 89.1006 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -264,7 +292,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Up"]
 
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
 
@@ -275,7 +303,7 @@ _update_shape_index = 0
 editor/display_folded = true
 transform/pos = Vector2( 166.309, 21.4718 )
 input/pickable = true
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 7 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -285,13 +313,13 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Down"]
 
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Porta_Genérica" parent="." instance=ExtResource( 11 )]
 
-transform/pos = Vector2( 1117.81, 352.095 )
+transform/pos = Vector2( 1126.55, 352.728 )
 transform/rot = 270.0
 
 

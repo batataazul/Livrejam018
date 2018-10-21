@@ -27,12 +27,10 @@ points = Vector2Array( 97.0707, 30.4571, -33.1561, 156.901, -30.9947, -31.6843, 
 custom_solver_bias = 0.0
 radius = 26.9277
 
-
-[sub_resource type="ConvexPolygonShape2D" id=8]
-
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 69.2029, 218.235, -2.61499, 243.287, -72.7626, 213.224, 0.143005, -1.17514 )
+points = Vector2Array( 41.6518, 102.28, -0.102783, 110.631, -43.8806, 98.859, 0.143005, -1.17514 )
 
 [sub_resource type="SpriteFrames" id=5]
 
@@ -52,11 +50,6 @@ animations = [ {
 "name": "Costa",
 "speed": 5.0
 } ]
-
-[sub_resource type="CircleShape2D" id=7]
-
-custom_solver_bias = 0.0
-radius = 56.5796
 
 [sub_resource type="RectangleShape2D" id=6]
 
@@ -161,9 +154,7 @@ margin/bottom = 40.0
 texture = ExtResource( 6 )
 stretch_mode = 0
 
-[node name="Guarda" type="Node2D" parent="." groups=[
-"Guardas",
-]]
+[node name="Guarda" type="Node2D" parent="."]
 
 transform/pos = Vector2( 880.428, 269.678 )
 
@@ -182,9 +173,7 @@ script/script = ExtResource( 7 )
 
 transform/pos = Vector2( -11.0804, 11.0804 )
 input/pickable = true
-
-shapes/0/shape = SubResource( 8 )
-
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -195,7 +184,7 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Guarda/Corpo/Vision"]
 
 build_mode = 0
-polygon = Vector2Array( 0.143005, -1.17514, -72.7626, 213.224, -2.61499, 243.287, 69.2029, 218.235 )
+polygon = Vector2Array( 0.143005, -1.17514, -43.8806, 98.859, -0.102783, 110.631, 41.6518, 102.28 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -209,26 +198,6 @@ animation = "Frente"
 
 transform/pos = Vector2( -12.0989, 9.40091 )
 shape = SubResource( 3 )
-
-trigger = false
-_update_shape_index = 0
-
-[node name="Feet_detection" type="Area2D" parent="Guarda/Corpo"]
-
-input/pickable = true
-shapes/0/shape = SubResource( 7 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -11.7042, 9.26584 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/Corpo/Feet_detection"]
-
-transform/pos = Vector2( -11.7042, 9.26584 )
-shape = SubResource( 7 )
-
 trigger = false
 _update_shape_index = 0
 

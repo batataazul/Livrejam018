@@ -9,15 +9,20 @@ func _ready():
 	#Conectar nodes de orientação de direção
 	for i in get_tree().get_nodes_in_group("Right"):
 		i.connect("body_enter", self, "direita")
+		i.get_node("CollisionShape2D").get_node("Sprite").queue_free()
 		
 	for i in get_tree().get_nodes_in_group("Left"):
 		i.connect("body_enter", self, "esquerda")
+		i.get_node("CollisionShape2D").get_node("Sprite").queue_free()
 		
 	for i in get_tree().get_nodes_in_group("Up"):
 		i.connect("body_enter", self, "cima")
+		i.get_node("CollisionShape2D").get_node("Sprite").queue_free()
 		
 	for i in get_tree().get_nodes_in_group("Down"):
 		i.connect("body_enter", self, "baixo")
+		i.get_node("CollisionShape2D").get_node("Sprite").queue_free()
+		
 	
 	set_process(true)
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Cenas/Jogo/Jogo.gd" type="Script" id=1]
 [ext_resource path="res://Cenas/Jogo/claro1.gd" type="Script" id=2]
@@ -7,11 +7,9 @@
 [ext_resource path="res://Cenas/Jogador/Jogador.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Imagens/cenario/Background.png" type="Texture" id=6]
 [ext_resource path="res://Cenas/Jogo/Soldado.gd" type="Script" id=7]
-[ext_resource path="res://Imagens/Personagens/Guardas/guarda costa pequeno.png" type="Texture" id=8]
-[ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=9]
-[ext_resource path="res://Imagens/Personagens/Guardas/guarda lado pequeno.png" type="Texture" id=10]
-[ext_resource path="res://Cenas/Jogo/seta.png" type="Texture" id=11]
-[ext_resource path="res://Cenas/Porta_Genérica/Porta_Genérica.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=8]
+[ext_resource path="res://Imagens/Personagens/Guardas/guarda lado pequeno.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/Personagens/Guardas/guarda costa pequeno.png" type="Texture" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -31,33 +29,28 @@ radius = 26.9277
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 69.2029, 218.235, -2.61499, 243.287, -72.7626, 213.224, 0.143005, -1.17514 )
+points = Vector2Array( 41.6518, 102.28, -0.102783, 110.631, -43.8806, 98.859, 0.143005, -1.17514 )
 
 [sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "Costa",
+"name": "Frente",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "Frente",
+"name": "Esquerda",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "Esquerda",
+"name": "Costa",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
-
-custom_solver_bias = 0.0
-radius = 56.5796
-
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 3.67255, 3.87631 )
@@ -109,7 +102,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 131095, -1073741824, 131096, -1073741824, 131097, -1073741824, 131098, -1073741824, 131099, -1073741824, 131100, -1073741824, 196617, 1610612736, 196618, 1610612736, 196619, 1610612737, 196620, 1610612737, 196631, -1073741824, 196632, -1073741824, 196633, -1073741824, 196634, -1073741824, 196635, -1073741824, 196636, -1073741824, 262153, 1610612736, 262154, 1610612736, 262155, 1610612737, 262156, 1610612737, 262157, 1610612737, 262158, 1610612737, 262159, 1610612737, 262160, 1, 262167, -1073741824, 262168, -1073741824, 262169, -1073741824, 262170, -1073741824, 262171, -1073741824, 262172, -1073741824, 327689, 1610612736, 327690, 1610612736, 327691, 1610612737, 327692, 1610612737, 327693, 1, 327694, 1, 327695, 1, 327696, 1610612737, 327697, 1610612736, 327698, 1610612736, 327699, 1610612736, 327700, 1610612736, 327701, 1610612736, 327702, -1073741824, 327703, -1073741824, 327704, -1073741824, 327705, -1073741824, 327706, -1073741824, 327707, -1073741824, 327708, -1073741824, 393239, -1073741824, 393240, -1073741824, 393241, -1073741824, 393242, -1073741824, 393243, -1073741824, 393244, -1073741824, 458775, -1073741824, 458776, -1073741824, 458777, -1073741824, 458778, -1073741824, 458779, -1073741824, 458780, -1073741824, 524311, -1073741824, 524312, -1073741824, 524313, -1073741824, 524314, -1073741824, 524315, -1073741824, 524316, -1073741824 )
+tile_data = IntArray( 196617, 1610612736, 196618, 1610612736, 196619, 1610612737, 196620, 1610612737, 262153, 1610612736, 262154, 1610612736, 262155, 1610612737, 262156, 1610612737, 262157, 1610612737, 262158, 1610612737, 262159, 1610612737, 262160, 1, 327689, 1610612736, 327690, 1610612736, 327691, 1610612737, 327692, 1610612737, 327693, 1, 327694, 1, 327695, 1, 327696, 1610612737, 327697, 1610612736, 327698, 1610612736, 327699, 1610612736, 327700, 1610612736, 327701, 1610612736, 327702, 1610612736 )
 
 [node name="Paredes" type="TileMap" parent="."]
 
@@ -160,11 +153,9 @@ margin/bottom = 40.0
 texture = ExtResource( 6 )
 stretch_mode = 0
 
-[node name="Guarda" type="Node2D" parent="." groups=[
-"Guardas",
-]]
+[node name="Guarda" type="Node2D" parent="."]
 
-transform/pos = Vector2( 1402.05, -26.1413 )
+transform/pos = Vector2( 880.428, 269.678 )
 
 [node name="Corpo" type="KinematicBody2D" parent="Guarda"]
 
@@ -179,7 +170,6 @@ script/script = ExtResource( 7 )
 
 [node name="Vision" type="Area2D" parent="Guarda/Corpo"]
 
-editor/display_folded = true
 transform/pos = Vector2( -11.0804, 11.0804 )
 input/pickable = true
 shapes/0/shape = SubResource( 4 )
@@ -193,7 +183,7 @@ angular_damp = 1.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Guarda/Corpo/Vision"]
 
 build_mode = 0
-polygon = Vector2Array( 0.143005, -1.17514, -72.7626, 213.224, -2.61499, 243.287, 69.2029, 218.235 )
+polygon = Vector2Array( 0.143005, -1.17514, -43.8806, 98.859, -0.102783, 110.631, 41.6518, 102.28 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -210,36 +200,18 @@ shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Feet_detection" type="Area2D" parent="Guarda/Corpo"]
-
-input/pickable = true
-shapes/0/shape = SubResource( 6 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -11.7042, 9.26584 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/Corpo/Feet_detection"]
-
-transform/pos = Vector2( -11.7042, 9.26584 )
-shape = SubResource( 6 )
-trigger = false
-_update_shape_index = 0
-
 [node name="PathPoints" type="Node2D" parent="Guarda"]
 
-editor/display_folded = true
 transform/rot = -0.154407
 
 [node name="Right" type="Area2D" parent="Guarda/PathPoints" groups=[
 "Right",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( -5.95135, 9.14572 )
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -249,23 +221,18 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Right"]
 
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
-
-[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Right/CollisionShape2D"]
-
-transform/pos = Vector2( -1.10376, 1.62374 )
-transform/scale = Vector2( 0.413937, 0.45312 )
-texture = ExtResource( 11 )
 
 [node name="Left" type="Area2D" parent="Guarda/PathPoints" groups=[
 "Left",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 153.629, 86.8091 )
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -275,17 +242,9 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Left"]
 
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
-
-[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Left/CollisionShape2D"]
-
-transform/pos = Vector2( 7.65417, 7.71848 )
-transform/rot = 180.0
-transform/scale = Vector2( 0.408829, 0.448974 )
-texture = ExtResource( 11 )
-centered = false
 
 [node name="Up" type="Area2D" parent="Guarda/PathPoints" groups=[
 "Up",
@@ -294,7 +253,7 @@ centered = false
 editor/display_folded = true
 transform/pos = Vector2( -26.8651, 89.1006 )
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -304,25 +263,18 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Up"]
 
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
-
-[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Up/CollisionShape2D"]
-
-transform/pos = Vector2( -8.02747, 4.88627 )
-transform/rot = 90.0
-transform/scale = Vector2( 0.360828, 0.427675 )
-texture = ExtResource( 11 )
-centered = false
 
 [node name="Down" type="Area2D" parent="Guarda/PathPoints" groups=[
 "Down",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 166.309, 21.4718 )
 input/pickable = true
-shapes/0/shape = SubResource( 7 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -332,20 +284,8 @@ angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Down"]
 
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
-
-[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Down/CollisionShape2D"]
-
-transform/pos = Vector2( 0.656372, 1.67239 )
-transform/rot = 270.0
-transform/scale = Vector2( 0.363261, 0.397343 )
-texture = ExtResource( 11 )
-
-[node name="Porta_Genérica" parent="." instance=ExtResource( 12 )]
-
-transform/pos = Vector2( 1126.55, 352.728 )
-transform/rot = 270.0
 
 

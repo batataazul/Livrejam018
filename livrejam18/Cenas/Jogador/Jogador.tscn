@@ -3,10 +3,10 @@
 [ext_resource path="res://Cenas/Jogador/Jogador.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Personagens/kubapequeno.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/Personagens/kuba costapequeno.png" type="Texture" id=3]
-[ext_resource path="res://Imagens/Personagens/kuba costa escuro pequeno.png" type="Texture" id=4]
-[ext_resource path="res://Imagens/Personagens/kuba lado escuropequeno.png" type="Texture" id=5]
-[ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=6]
-[ext_resource path="res://Imagens/Personagens/kubaladopequeno.png" type="Texture" id=7]
+[ext_resource path="res://Imagens/Personagens/kubaladopequeno.png" type="Texture" id=4]
+[ext_resource path="res://Imagens/Personagens/kuba costa escuro pequeno.png" type="Texture" id=5]
+[ext_resource path="res://Imagens/Personagens/kuba lado escuropequeno.png" type="Texture" id=6]
+[ext_resource path="res://Imagens/Personagens/kubaescuropequeno.png" type="Texture" id=7]
 [ext_resource path="res://Cenas/Jogador/HUD.gd" type="Script" id=8]
 [ext_resource path="res://Imagens/HUD/HUD.png" type="Texture" id=9]
 [ext_resource path="res://Imagens/ícones/retratopequeno.png" type="Texture" id=10]
@@ -35,23 +35,23 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Claro_lado",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "Escuro_trás",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Escuro_lado",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Escuro_frente",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Claro_lado",
+"name": "Escuro_frente",
 "speed": 5.0
 } ]
 

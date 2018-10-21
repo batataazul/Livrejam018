@@ -10,6 +10,7 @@
 [ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=8]
 [ext_resource path="res://Imagens/Personagens/Guardas/guarda lado pequeno.png" type="Texture" id=9]
 [ext_resource path="res://Imagens/Personagens/Guardas/guarda costa pequeno.png" type="Texture" id=10]
+[ext_resource path="res://Cenas/Porta_Genérica/Porta_Genérica.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -26,7 +27,9 @@ points = Vector2Array( 97.0707, 30.4571, -33.1561, 156.901, -30.9947, -31.6843, 
 custom_solver_bias = 0.0
 radius = 26.9277
 
+
 [sub_resource type="ConvexPolygonShape2D" id=8]
+
 
 custom_solver_bias = 0.0
 points = Vector2Array( 69.2029, 218.235, -2.61499, 243.287, -72.7626, 213.224, 0.143005, -1.17514 )
@@ -179,7 +182,9 @@ script/script = ExtResource( 7 )
 
 transform/pos = Vector2( -11.0804, 11.0804 )
 input/pickable = true
+
 shapes/0/shape = SubResource( 8 )
+
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -204,6 +209,7 @@ animation = "Frente"
 
 transform/pos = Vector2( -12.0989, 9.40091 )
 shape = SubResource( 3 )
+
 trigger = false
 _update_shape_index = 0
 
@@ -222,6 +228,7 @@ angular_damp = 1.0
 
 transform/pos = Vector2( -11.7042, 9.26584 )
 shape = SubResource( 7 )
+
 trigger = false
 _update_shape_index = 0
 
@@ -312,5 +319,10 @@ angular_damp = 1.0
 shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Porta_Genérica" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1117.81, 352.095 )
+transform/rot = 270.0
 
 

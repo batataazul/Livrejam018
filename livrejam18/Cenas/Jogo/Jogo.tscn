@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Cenas/Jogo/Jogo.gd" type="Script" id=1]
 [ext_resource path="res://Cenas/Jogo/claro1.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=8]
 [ext_resource path="res://Imagens/Personagens/Guardas/guarda lado pequeno.png" type="Texture" id=9]
 [ext_resource path="res://Imagens/Personagens/Guardas/guarda costa pequeno.png" type="Texture" id=10]
+[ext_resource path="res://Cenas/Porta_Genérica/Porta_Genérica.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -21,17 +22,17 @@ points = Vector2Array( 97.0707, 30.4571, 352.661, 29.9167, 352.121, 159.063, -33
 custom_solver_bias = 0.0
 points = Vector2Array( 97.0707, 30.4571, -33.1561, 156.901, -30.9947, -31.6843, 95.4496, -33.3054 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 26.9277
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 41.6518, 102.28, -0.102783, 110.631, -43.8806, 98.859, 0.143005, -1.17514 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
@@ -160,7 +161,7 @@ transform/pos = Vector2( 880.428, 269.678 )
 [node name="Corpo" type="KinematicBody2D" parent="Guarda"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -12.0989, 9.40091 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -172,7 +173,7 @@ script/script = ExtResource( 7 )
 
 transform/pos = Vector2( -11.0804, 11.0804 )
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -190,13 +191,13 @@ trigger = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Guarda/Corpo"]
 
 transform/pos = Vector2( -11.0803, -72.0222 )
-frames = SubResource( 3 )
+frames = SubResource( 5 )
 animation = "Frente"
 
 [node name="Feet" type="CollisionShape2D" parent="Guarda/Corpo"]
 
 transform/pos = Vector2( -12.0989, 9.40091 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -287,5 +288,10 @@ angular_damp = 1.0
 shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Porta_Genérica" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1117.81, 352.095 )
+transform/rot = 270.0
 
 

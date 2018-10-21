@@ -1,10 +1,12 @@
 extends StaticBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	get_node("Area2D").connect("body_enter",self,"porta_abriu")
+	pass
+
+func porta_abriu(body):
+	if body.get_name() == "Jogador":
+		body.chaves -= 1
+		queue_free()
 	pass

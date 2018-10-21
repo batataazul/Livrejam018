@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://Cenas/Jogo/Jogo.gd" type="Script" id=1]
 [ext_resource path="res://Cenas/Jogo/claro1.gd" type="Script" id=2]
@@ -7,6 +6,8 @@
 [ext_resource path="res://Cenas/TileSet/TileSet_parede.res" type="TileSet" id=4]
 [ext_resource path="res://Cenas/Jogador/Jogador.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Imagens/cenario/Background.png" type="Texture" id=6]
+[ext_resource path="res://Cenas/Jogo/Guarda1.gd" type="Script" id=7]
+[ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -16,9 +17,24 @@ points = Vector2Array( 97.0707, 30.4571, 352.661, 29.9167, 352.121, 159.063, -33
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-
 points = Vector2Array( 97.0707, 30.4571, -33.1561, 156.901, -30.9947, -31.6843, 95.4496, -33.3054 )
 
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, 38.574, -4.11847, 0, 0, 0, 0, 38.574, -4.11847, 0, 0, 0, 0, 246.15, -7.72849, 0, 0, 0, 0, 244.345, 73.4968, 0, 0, 0, 0, 36.769, 79.8143, 0, 0, 0, 0, 38.574, -4.11847 )
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 19.6216, 21.266 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 0.669006, 1.29654, 282.25, -30.291, 286.762, 16.6391, 276.835, 44.6167 )
 
 [node name="Jogo" type="Node2D"]
 
@@ -85,7 +101,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 65545, 5, 65546, 5, 65547, 5, 65548, 5, 65549, 0, 65550, 0, 65551, 0, 65552, 0, 131080, 7, 131081, 2, 131082, 2, 131083, 0, 131084, 0, 131085, 0, 131086, 0, 131087, 0, 131088, 0, 196615, -1073741819, 196616, -1073741823, 262151, -1073741819, 262152, -1073741823, 262161, 0, 262162, 0, 262163, 0, 262164, 0, 262165, 0, 262166, 0, 327687, -1073741819, 327688, -1073741823, 393224, -1073741817, 393225, 1610612737, 393226, 1610612737, 393227, 1610612736, 393228, 1610612736, 393229, 1610612736, 393230, 1610612736, 393231, 1610612736, 393232, 1610612736, 393233, 1610612736, 393234, 1610612736, 393235, 1610612736, 393236, 1610612736, 393237, 1610612736, 393238, 1610612736, 458761, 1610612741, 458762, 1610612741, 458763, 1610612741, 458764, 1610612741, 458765, 1610612741, 458766, 1610612741, 458767, 1610612741, 458768, 1610612741 )
+tile_data = IntArray( 65545, 5, 65546, 5, 65547, 5, 65548, 5, 65549, 0, 65550, 0, 65551, 0, 65552, 0, 131081, 2, 131082, 2, 131083, 0, 131084, 0, 131085, 0, 131086, 0, 131087, 0, 131088, 0, 196615, -1073741819, 196616, -1073741823, 196621, 0, 196622, 0, 196623, 0, 196624, 0, 262151, -1073741819, 262152, -1073741823, 262161, 0, 262162, 0, 262163, 0, 262164, 0, 262165, 0, 262166, 0, 327687, -1073741819, 327688, -1073741823, 393225, 1610612737, 393226, 1610612737, 393227, 1610612736, 393228, 1610612736, 393229, 1610612736, 393230, 1610612736, 393231, 1610612736, 393232, 1610612736, 393233, 1610612736, 393234, 1610612736, 393235, 1610612736, 393236, 1610612736, 393237, 1610612736, 393238, 1610612736, 458761, 1610612741, 458762, 1610612741, 458763, 1610612741, 458764, 1610612741, 458765, 1610612741, 458766, 1610612741, 458767, 1610612741, 458768, 1610612741 )
 
 [node name="Jogador" parent="." instance=ExtResource( 5 )]
 
@@ -118,17 +134,16 @@ margin/bottom = 40.0
 texture = ExtResource( 6 )
 stretch_mode = 0
 
-transform/pos = Vector2( 624.397, 134.637 )
-
 [node name="Guarda" type="Path2D" parent="."]
 
-transform/pos = Vector2( 275.191, 366.586 )
-curve = SubResource( 1 )
-script/script = ExtResource( 2 )
+transform/pos = Vector2( 780.665, 277.971 )
+curve = SubResource( 3 )
+script/script = ExtResource( 7 )
 
 [node name="Seguir" type="PathFollow2D" parent="Guarda"]
 
-transform/pos = Vector2( 81.4769, 2.77325 )
+transform/pos = Vector2( 38.574, -4.11847 )
+transform/rot = 0.996366
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -137,28 +152,43 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Guarda/Seguir"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="Guarda/Seguir/KinematicBody2D"]
+
+texture = ExtResource( 8 )
+offset = Vector2( 0, -76 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/Seguir/KinematicBody2D"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
 [node name="Area2D" type="Area2D" parent="Guarda/Seguir"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( -5.08797e-07, -11.6399, 12.3769, -5.4101e-07, 119.734, 1.25644 )
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 
-[node name="Sprite" type="Sprite" parent="Guarda/Seguir/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Guarda/Seguir/Area2D"]
 
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/Seguir/Area2D"]
-
-transform/pos = Vector2( 119.734, 1.25644 )
-transform/rot = 90.0
-transform/scale = Vector2( 11.6399, 12.3769 )
-shape = SubResource( 2 )
+build_mode = 0
+polygon = Vector2Array( 0.669006, 1.29654, 282.25, -30.291, 286.762, 16.6391, 276.835, 44.6167 )
+shape_range = Vector2( 0, 0 )
 trigger = false
-_update_shape_index = 0
 
 

@@ -3,7 +3,7 @@ extends KinematicBody2D
 const rapidez = 256 #Constante de velocidade
 const normal = Vector2(0,-1) #Vetor normal
 
-var i
+var i #Iterador
 
 var velocidade #Velocidade linear
 var chaves = 3 #Chaves que o jogador possui
@@ -72,13 +72,12 @@ func _fixed_process(delta):
 			soundplayer.play("passos",true)
 			Anim.play("walking")
 		passostimer.start()
-		
-		
+			
 
 func _on_PassosTimer_timeout():
 	soundplayer.stop_all()
 	Anim.stop(true)
-	
+
 func visto(body):
 	if (body == self and claro):
 		if chaves == 0:
@@ -91,6 +90,7 @@ func visto(body):
 			pass
 		pass
 	pass
+	
 
 func encostou(body):
 	if body == self:

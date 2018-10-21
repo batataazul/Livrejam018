@@ -3,7 +3,7 @@ extends KinematicBody2D
 const rapidez = 256 #Constante de velocidade
 const normal = Vector2(0,-1) #Vetor normal
 
-
+var i
 
 var velocidade #Velocidade linear
 var chaves = 3 #Chaves que o jogador possui
@@ -22,6 +22,12 @@ func _ready():
 	Anim = get_node("AnimPlayer")
 	soundplayer = get_node("Passos")
 	passostimer = get_node("PassosTimer")
+	
+	#Conectar todos os campos de visão e pés dos guardas da cena
+	for i in get_tree().get_nodes_in_group("Guardas"):
+		i.get_node("Corpo").get_node("Vision").connect("body_enter", self, "visto")
+		i.get_node("Corpo").get_node("Feet_detection").connect("body_enter", self, "encostou")
+	
 	set_fixed_process(true) #Começa o processo físico
 	pass
 
@@ -73,3 +79,26 @@ func _on_PassosTimer_timeout():
 	soundplayer.stop_all()
 	Anim.stop(true)
 	
+func visto(body):
+	if (body == self and claro):
+		if chaves == 0:
+			#Game Over!!!
+			get_tree().change_scene("res://Cenas/Main/Main.tscn")
+			pass
+		else:
+			#Voltar para início
+			get_tree().change_scene("res://Cenas/Jogo/Jogo.tscn")
+			pass
+		pass
+	pass
+
+func encostou(body):
+	if body == self:
+		if chaves == 0:
+			get_tree().change_scene("res://Cenas/Main/Main.tscn")
+			pass
+		else:
+			get_tree().change_scene("res://Cenas/Jogo/Jogo.tscn")
+			pass
+		pass
+	pass

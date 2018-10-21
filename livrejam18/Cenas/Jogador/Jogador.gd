@@ -6,9 +6,12 @@ const normal = Vector2(0,-1) #Vetor normal
 
 
 var velocidade #Velocidade linear
-var chaves = 12 #Chaves que o jogador possui
+var chaves = 3 #Chaves que o jogador possui
 var claro = false #Se o jogador está, ou não numa área iluminada
 var sprite #Sprite
+var Anim
+var soundplayer # Som de passos
+var passostimer
 
 var Yellow_key = false
 var Red_key = false
@@ -16,6 +19,9 @@ var Green_key = false
 
 func _ready():
 	sprite = get_node("AnimatedSprite") #Pega a animação
+	Anim = get_node("AnimPlayer")
+	soundplayer = get_node("Passos")
+	passostimer = get_node("PassosTimer")
 	set_fixed_process(true) #Começa o processo físico
 	pass
 
@@ -54,4 +60,16 @@ func _fixed_process(delta):
 			sprite.play("Escuro_frente")
 		pass
 	move_and_slide(velocidade.normalized()*rapidez,normal) #Se move usando um vetor normalizado multiplicado
-	pass
+		
+	if velocidade != Vector2(0,0): # Para iniciar o loop dos passos
+		if !soundplayer.is_active():
+			soundplayer.play("passos",true)
+			Anim.play("walking")
+		passostimer.start()
+		
+		
+
+func _on_PassosTimer_timeout():
+	soundplayer.stop_all()
+	Anim.stop(true)
+	

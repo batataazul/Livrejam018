@@ -7,7 +7,6 @@ func _ready():
 
 func porta_abriu_a(body):
 	if body.get_name() == "Jogador" and global.chaves_y:
-		global.chaves_y = false
 		get_node("LockSound").play("Lock")
 		get_node("OpenTimer").start()
 		

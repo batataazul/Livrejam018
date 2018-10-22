@@ -4,12 +4,12 @@
 [ext_resource path="res://Imagens/Doors/Yellow_Door.png" type="Texture" id=2]
 [ext_resource path="res://Sons/Sample de Fechadura/Fechadura Stereo sem reverb.wav" type="Sample" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.5072, 31.8196 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 33.0665, 15.6582 )
@@ -23,10 +23,10 @@ samples/Lock = {
 "sample": ExtResource( 3 )
 }
 
-[node name="Porta_Genérica" type="StaticBody2D"]
+[node name="Porta_a" type="StaticBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0.71698, 16.8489 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -45,14 +45,14 @@ texture = ExtResource( 2 )
 
 transform/pos = Vector2( 0.71698, 16.8489 )
 transform/rot = 90.0
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Area2D" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.358475, 22.9432 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -63,7 +63,7 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 transform/pos = Vector2( -0.358475, 22.9432 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -71,7 +71,7 @@ _update_shape_index = 0
 
 config/polyphony = 1
 config/samples = SubResource( 3 )
-default/volume_db = -10.0
+default/volume_db = -4.0
 default/pitch_scale = 1.0
 default/pan = 0.0
 default/depth = 0.0

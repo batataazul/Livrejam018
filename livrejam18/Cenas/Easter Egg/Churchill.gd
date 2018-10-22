@@ -13,13 +13,13 @@ func _fixed_process(delta):
 		b = c%4
 	
 	if b ==0:
-		move_and_slide(Vector2(0,-768))
+		move_and_slide(Vector2(0,-768*0.75))
 	if b == 1:
-		move_and_slide(Vector2(768,0))
+		move_and_slide(Vector2(768*0.75,0))
 	if b ==2:
-		move_and_slide(Vector2(0,768))
+		move_and_slide(Vector2(0,768*0.75))
 	if b ==3:
-		move_and_slide(Vector2(-768,0))
+		move_and_slide(Vector2(-768*0.75,0))
 			
 	c = c +1
 	pass

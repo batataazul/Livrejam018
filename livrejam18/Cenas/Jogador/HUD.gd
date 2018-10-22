@@ -16,7 +16,7 @@ func _process(delta):
 	var pocket1 = get_node("pocket1")
 	var pocket2 = get_node("pocket2")
 	
-	var chaves_g = player.chaves #Numero de chaves genéricas
+	var chaves_g = global.chaves #Numero de chaves genéricas
 	var claro = player.claro #Estado luminoso do jogador
 
 
@@ -25,7 +25,7 @@ func _process(delta):
 	else:
 		status_icon.texture = icon_escuro
 		
-	if chaves_g > 0:
+	if chaves_g >= 0:
 		
 		for A in range(0,pocket1.get_child_count()):
 			pocket1.get_child(A).queue_free()
@@ -40,11 +40,11 @@ func _process(delta):
 			FILL(pocket1,6)
 			FILL(pocket2,chaves_g-6)
 
-	if player.Yellow_key:
+	if global.chaves_y:
 		get_node("Special_panel/yellow_key").show()
-	if player.Red_key:
+	if global.chaves_r:
 		get_node("Special_panel/red_key").show()
-	if player.Green_key:
+	if global.chaves_g:
 		get_node("Special_panel/green_key").show()
 
 func FILL(target,maximum):

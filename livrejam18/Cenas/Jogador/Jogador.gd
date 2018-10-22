@@ -6,7 +6,7 @@ const normal = Vector2(0,-1) #Vetor normal
 var i #Iterador
 
 var velocidade #Velocidade linear
-var chaves = 3 #Chaves que o jogador possui
+var chaves 
 var claro = false #Se o jogador está, ou não numa área iluminada
 var sprite #Sprite
 var Anim
@@ -18,6 +18,8 @@ var Red_key = false
 var Green_key = false
 
 func _ready():
+	chaves =  global.chaves
+	
 	sprite = get_node("AnimatedSprite") #Pega a animação
 	Anim = get_node("AnimPlayer")
 	soundplayer = get_node("Passos")
@@ -32,6 +34,8 @@ func _ready():
 	pass
 
 func _fixed_process(delta):
+	if Input.is_action_pressed("reset"):
+		get_tree().change_scene("res://Cenas/Main/Main.tscn")
 	velocidade = Vector2(0,0) #Reinicia a velocidade a cada repetição
 		
 	if Input.is_action_pressed("ui_right"):
@@ -82,11 +86,11 @@ func visto(body):
 	if (body == self and claro):
 		if chaves == 0:
 			#Game Over!!!
-			get_tree().change_scene("res://Cenas/Main/Main.tscn")
+			detected(true)
 			pass
 		else:
 			#Voltar para início
-			get_tree().change_scene("res://Cenas/Jogo/Jogo.tscn")
+			detected(false)
 			pass
 		pass
 	pass
@@ -95,10 +99,16 @@ func visto(body):
 func encostou(body):
 	if body == self:
 		if chaves == 0:
-			get_tree().change_scene("res://Cenas/Main/Main.tscn")
-			pass
+			detected(true)
+			
 		else:
-			get_tree().change_scene("res://Cenas/Jogo/Jogo.tscn")
+			detected(false)
 			pass
 		pass
 	pass
+	
+func detected(game_over):
+	if game_over:
+		get_tree().change_scene("res://Cenas/Jogo/Levels/cutscenes/GameOver/GameOver.tscn")
+	else:
+		get_tree().change_scene("res://Cenas/Jogo/Levels/(0)cela_inicial/cela_inicial.tscn")

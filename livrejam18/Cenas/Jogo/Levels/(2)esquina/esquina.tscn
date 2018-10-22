@@ -1,0 +1,431 @@
+[gd_scene load_steps=23 format=1]
+
+[ext_resource path="res://Cenas/Jogo/Levels/(2)esquina/esquina.gd" type="Script" id=1]
+[ext_resource path="res://Cenas/Jogo/claro1.gd" type="Script" id=2]
+[ext_resource path="res://Cenas/Chão/tileset_chão.res" type="TileSet" id=3]
+[ext_resource path="res://Cenas/TileSet/TileSet_parede.res" type="TileSet" id=4]
+[ext_resource path="res://Cenas/Porta_Genérica/porta_a/Porta_a.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Cenas/Jogador/Jogador.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Imagens/cenario/Background.png" type="Texture" id=7]
+[ext_resource path="res://Cenas/Jogo/Soldado.gd" type="Script" id=8]
+[ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/Personagens/Guardas/guarda lado pequeno.png" type="Texture" id=10]
+[ext_resource path="res://Imagens/Personagens/Guardas/guarda costa pequeno.png" type="Texture" id=11]
+[ext_resource path="res://Cenas/Jogo/seta.png" type="Texture" id=12]
+[ext_resource path="res://Cenas/Porta_Genérica/Porta_Genérica.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Cenas/Chave/Chave.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Cenas/Musics/MusicLong.tscn" type="PackedScene" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 373.774, 495.263 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 29.2377, 30.3656 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 69.2029, 218.235, -2.61499, 243.287, -72.7626, 213.224, 0.143005, -1.17514 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Frente",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Esquerda",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Costa",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 56.5796
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 3.67255, 3.87631 )
+
+[sub_resource type="SegmentShape2D" id=7]
+
+custom_solver_bias = 0.0
+a = Vector2( 30.9932, 10.5231 )
+b = Vector2( -31.4293, 9.54773 )
+
+[node name="esquina" type="Node2D"]
+
+transform/pos = Vector2( 2, -1 )
+script/script = ExtResource( 1 )
+
+[node name="LightArea" type="Area2D" parent="."]
+
+transform/pos = Vector2( 735.962, 225.822 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 550.732, 283.913 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="LightArea"]
+
+transform/pos = Vector2( 550.732, 283.913 )
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Chão" type="TileMap" parent="."]
+
+visibility/behind_parent = true
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65517, 0, 10, -1073741824, 11, 1610612736, 12, 1610612736, 13, 1610612736, 14, 1610612737, 15, 1610612737, 16, 1610612737, 17, 1610612737, 18, 1610612737, 19, 1610612737, 20, 1610612737, 21, 1610612737, 22, 1610612737, 23, 1610612737, 24, 1610612737, 25, 1610612737, 65546, -1073741824, 65547, 1610612736, 65548, 1610612736, 65549, 1610612736, 65550, 1610612737, 65551, 1610612737, 65552, 1610612737, 65553, 1610612737, 65554, 1610612737, 65555, 1610612737, 65556, 1610612737, 65557, -1073741823, 65558, 1610612737, 65559, 1610612737, 65560, 1610612737, 65561, 1610612737, 131082, -1073741824, 131083, 1610612736, 131084, 1610612736, 131086, 1610612737, 131087, 1610612737, 131088, 1610612737, 131089, 1610612737, 131090, 1610612737, 131091, 1610612737, 131092, 1610612737, 131093, 1610612737, 131094, 1610612737, 131095, 1610612737, 131096, 1610612737, 131097, 1610612737, 196616, 1610612736, 196617, 1610612736, 196618, 1610612736, 196619, 1610612736, 196620, 1610612736, 196622, 1610612737, 196623, 1610612737, 196624, 1610612737, 196631, 1610612737, 196632, 1610612737, 196633, 1610612737, 262152, 1610612736, 262153, 1610612736, 262154, 1610612736, 262155, 1610612736, 262156, 1610612736, 262158, 1610612737, 262159, 1610612737, 262160, 1610612737, 262167, 1610612737, 262168, 1610612737, 262169, 1610612737, 327687, -1073741824, 327688, 1610612736, 327689, 1610612736, 327690, 1610612736, 327691, 1610612736, 327692, 1610612736, 327694, 1610612737, 327695, 1610612737, 327696, 1610612737, 327703, 1610612737, 327704, 1610612737, 327705, 1610612737, 393230, 1610612737, 393231, 1610612737, 393232, 1610612737, 393239, 1610612737, 393240, 1610612737, 393241, 1610612737, 458766, 1610612737, 458767, 1610612737, 458768, 1610612737, 458775, 1610612737, 458776, 1610612737, 458777, 1610612737, 524302, 1610612737, 524303, 1610612737, 524304, 1610612737, 524311, 1610612737, 524312, 1610612737, 524313, 1610612737, 589838, 1610612737, 589839, 1610612737, 589840, 1610612737, 589847, 1610612737, 589848, 1610612737, 589849, 1610612737, 655374, 1610612737, 655375, 1610612737, 655376, 1610612737, 655383, 1610612737, 655384, 1610612737, 655385, 1610612737, 720910, 1610612737, 720911, 1610612737, 720912, 1610612737, 720919, 1610612737, 720920, 1610612737, 720921, 1610612737, 786446, 1610612737, 786447, 1610612737, 786448, 1610612737, 786455, 1610612737, 786456, 1610612737, 786457, 1610612737, 851982, 1610612737, 851983, 1610612737, 851984, 1610612737, 851985, 1610612737, 851986, 1610612737, 851987, 1610612737, 851988, 1610612737, 851989, 1610612737, 851990, 1610612737, 851991, 1610612737, 851992, 1610612737, 851993, 1610612737, 917518, 1610612737, 917519, 1610612737, 917520, 1610612737, 917521, 1610612737, 917522, 1610612737, 917523, 1610612737, 917524, 1610612737, 917525, 1610612737, 917526, 1610612737, 917527, 1610612737, 917528, 1610612737, 917529, 1610612737, 983054, 1610612737, 983055, 1610612737, 983056, 1610612737, 983057, 1610612737, 983058, 1610612737, 983059, 1610612737, 983060, 1610612737, 983061, 1610612737, 983062, 1610612737, 983063, 1610612737, 983064, 1610612737, 983065, 1610612737, 1048596, -1073741824 )
+
+[node name="Paredes" type="TileMap" parent="."]
+
+visibility/behind_parent = true
+mode = 0
+tile_set = ExtResource( 4 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65527, -1610612729, -65526, 4, -65525, 4, -65524, 4, -65523, 4, -65522, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, -65516, 0, -65515, 0, -65514, 0, -65513, 0, -65512, 0, -65511, 0, -65510, -1073741824, 9, -1610612733, 26, -1610612736, 65545, 1610612743, 65562, -1610612736, 131079, 7, 131080, 4, 131081, 4, 131084, -1610612732, 131085, -1073741824, 131098, -1610612736, 196615, -1073741820, 196620, -1610612732, 196621, -1073741824, 196625, -1610612736, 196626, 1610612736, 196627, 1610612736, 196628, 1610612736, 196629, 1610612736, 196630, -1073741824, 196634, -1610612736, 262151, -1073741820, 262156, -1610612732, 262157, -1073741824, 262161, -1610612736, 262166, -1073741824, 262170, -1610612736, 327692, -1610612732, 327693, -1073741824, 327697, -1610612736, 327702, -1073741824, 327706, -1610612736, 393223, 6, 393224, 2, 393225, 2, 393226, 2, 393227, 2, 393228, -1610612729, 393229, -1073741824, 393233, -1610612736, 393238, -1073741824, 393242, -1610612736, 458765, -1073741824, 458769, -1610612736, 458774, -1073741824, 458778, -1610612736, 524301, -1073741824, 524305, -1610612736, 524310, -1073741824, 524314, -1610612736, 589837, -1073741824, 589841, -1610612736, 589846, -1073741824, 589850, -1610612736, 655373, -1073741824, 655377, -1610612736, 655382, -1073741824, 655386, -1610612736, 720909, -1073741824, 720913, -1610612736, 720918, -1073741824, 720922, -1610612736, 786445, -1073741824, 786449, -1610612736, 786450, 1610612736, 786451, 1610612736, 786452, 1610612736, 786453, 1610612736, 786454, -1073741824, 786458, -1610612736, 851981, -1073741824, 851994, -1610612736, 917517, -1073741824, 917530, -1610612736, 983053, -1073741824, 983066, -1610612736, 1048589, -1610612736, 1048590, 1610612736, 1048591, 1610612736, 1048592, 1610612736, 1048593, 1610612736, 1048594, 1610612736, 1048595, 1610612736, 1048597, 1610612736, 1048598, 1610612736, 1048599, 1610612736, 1048600, 1610612736, 1048601, 1610612736, 1048602, -1073741824 )
+
+[node name="Porta_Genérica" parent="Paredes" instance=ExtResource( 5 )]
+
+[node name="Jogador" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 558.622, 348.427 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = false
+
+[node name="Background" type="TextureFrame" parent="ParallaxBackground"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+texture = ExtResource( 7 )
+stretch_mode = 0
+
+[node name="Guarda" type="Node2D" parent="." groups=[
+"Guardas",
+]]
+
+transform/pos = Vector2( 1388.66, -30.9739 )
+
+[node name="Corpo" type="KinematicBody2D" parent="Guarda"]
+
+transform/pos = Vector2( 194.3, 109.987 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -12.0989, 9.40091 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 8 )
+
+[node name="Vision" type="Area2D" parent="Guarda/Corpo"]
+
+transform/pos = Vector2( -11.0804, 11.0804 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Guarda/Corpo/Vision"]
+
+build_mode = 0
+polygon = Vector2Array( 0.143005, -1.17514, -72.7626, 213.224, -2.61499, 243.287, 69.2029, 218.235 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Guarda/Corpo"]
+
+transform/pos = Vector2( -11.0803, -72.0222 )
+frames = SubResource( 4 )
+animation = "Frente"
+
+[node name="Feet" type="CollisionShape2D" parent="Guarda/Corpo"]
+
+transform/pos = Vector2( -12.0989, 9.40091 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Feet_detection" type="Area2D" parent="Guarda/Corpo"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -11.7042, 9.26584 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/Corpo/Feet_detection"]
+
+transform/pos = Vector2( -11.7042, 9.26584 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="PathPoints" type="Node2D" parent="Guarda"]
+
+transform/rot = -0.154407
+
+[node name="Right" type="Area2D" parent="Guarda/PathPoints" groups=[
+"Right",
+]]
+
+transform/pos = Vector2( -395.936, 91.9251 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Right"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Right/CollisionShape2D"]
+
+visibility/visible = false
+transform/pos = Vector2( -1.10376, 1.62374 )
+transform/scale = Vector2( 0.413937, 0.45312 )
+texture = ExtResource( 12 )
+
+[node name="Left" type="Area2D" parent="Guarda/PathPoints" groups=[
+"Left",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 182.194, 994.262 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Left"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Left/CollisionShape2D"]
+
+transform/pos = Vector2( 7.65417, 7.71848 )
+transform/rot = 180.0
+transform/scale = Vector2( 0.408829, 0.448974 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Up" type="Area2D" parent="Guarda/PathPoints" groups=[
+"Up",
+]]
+
+transform/pos = Vector2( -429.646, 965.06 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Up"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Up/CollisionShape2D"]
+
+transform/pos = Vector2( -8.02747, 4.88627 )
+transform/rot = 90.0
+transform/scale = Vector2( 0.360828, 0.427675 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Down" type="Area2D" parent="Guarda/PathPoints" groups=[
+"Down",
+]]
+
+editor/display_folded = true
+transform/pos = Vector2( 214.65, 124.577 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guarda/PathPoints/Down"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="Guarda/PathPoints/Down/CollisionShape2D"]
+
+transform/pos = Vector2( 0.656372, 1.67239 )
+transform/rot = 270.0
+transform/scale = Vector2( 0.363261, 0.397343 )
+texture = ExtResource( 12 )
+
+[node name="Porta_Genérica" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 480, 352 )
+transform/rot = 90.0
+
+[node name="Porta_Genérica1" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 1312, 1053.53 )
+transform/rot = 180.0
+
+[node name="Chave" parent="." instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 1629.87, 990.882 )
+
+[node name="Para_3" type="Area2D" parent="."]
+
+transform/pos = Vector2( 1311.07, 1048.86 )
+input/pickable = true
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.46301, 28.7728 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Para_3"]
+
+transform/pos = Vector2( 1.46301, 28.7728 )
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Para_1" type="Area2D" parent="."]
+
+transform/pos = Vector2( 490.492, 352.204 )
+transform/rot = 270.0
+input/pickable = true
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.46301, 28.7728 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Para_1"]
+
+transform/pos = Vector2( 1.46301, 28.7728 )
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Para_Gandi" type="Area2D" parent="."]
+
+transform/pos = Vector2( 1236.97, -27.522 )
+transform/rot = 180.0
+input/pickable = true
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.46301, 28.7728 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Para_Gandi"]
+
+transform/pos = Vector2( 1.46301, 28.7728 )
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="MusicLong" parent="." instance=ExtResource( 15 )]
+
+[node name="Porta_Genérica 2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1249.06, -34.2373 )
+
+

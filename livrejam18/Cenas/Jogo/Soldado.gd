@@ -1,7 +1,7 @@
 extends KinematicBody2D
 var i
-onready var speed = 100
-onready var direction = Vector2(1,0)
+onready var speed = 280
+onready var direction = Vector2(0,0)
 onready var sprite = get_node("AnimatedSprite")
 onready var vision = get_node("Vision")
 

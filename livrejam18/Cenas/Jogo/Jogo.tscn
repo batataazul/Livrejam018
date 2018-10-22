@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://Cenas/Jogo/Jogo.gd" type="Script" id=1]
 [ext_resource path="res://Cenas/Jogo/claro1.gd" type="Script" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://Cenas/Jogador/Jogador.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Imagens/cenario/Background.png" type="Texture" id=6]
 [ext_resource path="res://Cenas/Jogo/Soldado.gd" type="Script" id=7]
-[ext_resource path="res://Imagens/Personagens/Guardas/guarda costa pequeno.png" type="Texture" id=8]
-[ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=9]
-[ext_resource path="res://Imagens/Personagens/Guardas/guarda lado pequeno.png" type="Texture" id=10]
+[ext_resource path="res://Imagens/Personagens/Guardas/guardapequeno.png" type="Texture" id=8]
+[ext_resource path="res://Imagens/Personagens/Guardas/guarda lado pequeno.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/Personagens/Guardas/guarda costa pequeno.png" type="Texture" id=10]
 [ext_resource path="res://Cenas/Jogo/seta.png" type="Texture" id=11]
 [ext_resource path="res://Cenas/Porta_Genérica/Porta_Genérica.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Cenas/Chave/Chave.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -38,17 +39,17 @@ points = Vector2Array( 69.2029, 218.235, -2.61499, 243.287, -72.7626, 213.224, 0
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "Costa",
+"name": "Frente",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "Frente",
+"name": "Esquerda",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "Esquerda",
+"name": "Costa",
 "speed": 5.0
 } ]
 
@@ -135,6 +136,7 @@ transform/pos = Vector2( 664.107, 294.759 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -164,6 +166,7 @@ stretch_mode = 0
 "Guardas",
 ]]
 
+editor/display_folded = true
 transform/pos = Vector2( 1402.05, -26.1413 )
 
 [node name="Corpo" type="KinematicBody2D" parent="Guarda"]
@@ -347,5 +350,9 @@ texture = ExtResource( 11 )
 
 transform/pos = Vector2( 1126.55, 352.728 )
 transform/rot = 270.0
+
+[node name="Chave" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 878.619, 307.139 )
 
 

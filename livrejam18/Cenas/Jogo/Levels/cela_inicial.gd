@@ -6,4 +6,4 @@ func _ready():
 	
 func troca_sala(body):
 	if body.get_name() == "Jogador":
-		get_tree().change_scene("res://Cenas/Jogo/Levels/corredor.tscn")
+		get_tree().change_scene("res://Cenas/Jogo/Levels/(1)corredor/corredor.tscn")

@@ -3,6 +3,9 @@ extends Node2D
 
 func _ready():
 	global.chaves = 3
+	global.chaves_y =false
+	global.chaves_g = false
+	global.chaves_r = false
 	get_node("Iniciar").connect("pressed", self, "jogar") #Botão para iniciar o jogo
 	get_node("Sair").connect("pressed", self, "sair") #Botão para sair
 	pass

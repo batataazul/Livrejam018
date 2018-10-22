@@ -84,7 +84,7 @@ func _on_PassosTimer_timeout():
 
 func visto(body):
 	if (body == self and claro):
-		if chaves == 0:
+		if global.chaves == 0:
 			#Game Over!!!
 			detected(true)
 			pass
@@ -98,7 +98,7 @@ func visto(body):
 
 func encostou(body):
 	if body == self:
-		if chaves == 0:
+		if global.chaves == 0:
 			detected(true)
 			
 		else:
